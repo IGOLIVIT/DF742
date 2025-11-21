@@ -282,10 +282,10 @@ struct StartCard: View {
     @ObservedObject var statsManager = StatsManager.shared
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 16) {
             VStack(spacing: 12) {
                 Image(systemName: "minus.forwardslash.plus")
-                    .font(.system(size: 48))
+                    .font(.system(size: 44))
                     .foregroundColor(Color("AccentGold"))
                 
                 Text("Ready to Start?")
@@ -298,11 +298,12 @@ struct StartCard: View {
                     .foregroundColor(Color.white.opacity(0.7))
                     .multilineTextAlignment(.center)
                     .lineSpacing(4)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-            .padding(.top, 20)
+            .padding(.top, 16)
             
             if let stats = statsManager.gameStats[.laneDash], stats.bestScore > 0 {
-                VStack(spacing: 8) {
+                VStack(spacing: 6) {
                     Text("Your Best Score")
                         .font(.caption)
                         .foregroundColor(Color.white.opacity(0.6))
@@ -311,7 +312,7 @@ struct StartCard: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color("AccentGold"))
                 }
-                .padding(.vertical, 12)
+                .padding(.vertical, 8)
             }
             
             Button(action: onStart) {
@@ -319,16 +320,16 @@ struct StartCard: View {
                     .font(.headline)
                     .foregroundColor(Color("PrimaryBackground"))
                     .frame(maxWidth: .infinity)
-                    .frame(height: 54)
+                    .frame(height: 50)
                     .background(Color("AccentGold"))
-                    .cornerRadius(16)
+                    .cornerRadius(12)
             }
-            .padding(.bottom, 20)
+            .padding(.bottom, 16)
         }
-        .padding(24)
+        .padding(20)
         .background(Color("CardBackground"))
-        .cornerRadius(20)
-        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.3), radius: 8, x: 0, y: 4)
     }
 }
 
